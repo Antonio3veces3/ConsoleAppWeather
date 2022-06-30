@@ -54,12 +54,6 @@ const readInput = async (message) => {
             type: 'input',
             name: 'description',
             message: message,
-            /*validate(value) {
-                if (value.length === 0) {
-                    return ' Campo requerido'.red;
-                }
-                return true;
-            }*/
         }
     ];
 
@@ -103,27 +97,7 @@ const confirm = async(message) => {
     return ok;
 };
 
-const listadoTareasCheckList = async (tareas = []) => {
-    const choices = tareas.map( (tarea, i) => {
-        const index = `${i+1}. `.green;
-        return {
-            value: tarea.id,
-            name: `     ${index} ${tarea.description}`,
-            loop: false,
-            checked: (tarea.completedAt)?true:false
-        }
-    });
-    choices.unshift(new inquirer.Separator('-----------------'));
 
-    const questions = [{
-        type: 'checkbox',
-        name: 'ids',
-        message: 'Select options...'.red,
-        choices
-    }];
-    const {ids} = await inquirer.prompt(questions);
-    return ids;
-};
 
 
 export {
@@ -132,5 +106,4 @@ export {
     readInput,
     listPlaces,
     confirm,
-    listadoTareasCheckList
 };
