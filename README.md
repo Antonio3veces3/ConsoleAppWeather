@@ -1,6 +1,6 @@
 # Installation
 
-To use this app, run:
+To install the modules, run:
 
 `` $ npm install  ``
 
